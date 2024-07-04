@@ -82,9 +82,25 @@ While we don't expect everyone to complete this part of the exercise, it will fo
 
 We'd love to hear about
 * How you would go about implementing the solution
+
+  As you are already able to access the messages via the api - you could add tags via a patch request. Find the message by it's ID and patch the particular entry with the users new tags.
+
 * What problems you might encounter
+
+  You would have to make sure the tags the user enters are sanitised. I also would definetely consider limiting how tags are written - if someone searches "study" it should come up with all the messages about studying -
+  rather than if the user had entered study1, stdy or studdy for example. I would also want to prevent offensive words - similar to your use of bad-words in this repository.
+  
 * How you would go about testing
+
+  Similar to how you have tested things currently - but running the demo patch request instead - on patch the message object of this id should return with the key value pair added.
+  i.e
+  tags : [ "newTag", "SecondNewTag"]
+
+  
 * What you might do differently
+
+    I think I personally would of added the tags as functionality right from the start - for instance the user would be able to add a message such as you have set-up but then the tags are a seperate option - allowing the user to come
+    back multiple times to add more tags if they wish.
 
 # Additional
 The following docs are from the live service repo. You may find them helpful. 
