@@ -88,9 +88,11 @@ export class MessageData {
   }
 
   async delete(messageId: ObjectID): Promise<ChatMessage> {
-    // Finds a message by id and then changes deleted to be true.
+    // Finds a message by id and then changes deleted value to true.
     const message = await this.chatMessageModel.findById(messageId);
+    // If it can't find a message, then it returns an error.
     if (!message) throw new Error('Message not found');
+    // Otherwise, it changes the value of deleted to true and returns the message.
     message.deleted = true;
     return message;
   }
